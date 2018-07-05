@@ -33,7 +33,7 @@ class CandidatesController < ApplicationController
           redirect_to candidates_path, notice: "資料更新成功!"
         else
           # 失敗
-          render :edit
+          render :edit, notice: "更新失敗!"
         end
     end
 
