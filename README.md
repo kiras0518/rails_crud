@@ -4,7 +4,7 @@
 - Ruby: 2.3.3
 - Rails: 2.4.6
 
-## Table 未規劃
+## Table 未規劃完成
 ### User
 |column|type|
 |---|---|
