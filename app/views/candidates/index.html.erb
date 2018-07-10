@@ -1,26 +1,33 @@
-<h1>候選人列表</h1>
-<% provide :my_title, "你好，我是Test" %> 
+<h1>任務列表</h1>
+<% provide :my_title, "Rails 任務管理" %> 
 
-  <%= icon_link_to "新增候選人", new_candidate_path, "plus" %>
+  <%= icon_link_to "新增任務" ,new_candidate_path, "plus" %>
   <table class = "table">
     <thead>
       <tr>
         <td>投票</td>
-        <td>候選人姓名</td>
-        <td>政黨</td>
-        <td>政見</td>
-        <td>得票數</td>
-        <td>處理</td>
+        <td>任務名稱</td>
+        <td>描述</td>
+        <td>備註</td>
+        <td>統計</td>
+        <td>目前狀態</td>
+        <td>截止日期</td>
+        <td>處理</td>    
       </tr>
     </thead>
     <tbody>   
          <% @candidate.each do |candidate| %>
             <tr>
-            <td><%= link_to "投給這位", vote_candidate_path(candidate), method: "post", data: { confirm: "確認要投給這人嗎?!" }, class:"btn btn-warning btn-xs" %></td>
-            <td><%= candidate.name %>(年齡：<%= candidate.age %> 歲)</td>
+            <td><%= link_to "+1測試", vote_candidate_path(candidate), method: "post", data: { confirm: "確認要+1嗎?!" }, class:"btn btn-warning btn-xs" %></td>
+            
+            <!--<td><%= candidate.name %>(年齡：<%= candidate.age %> 歲)</td>-->
+            <td><%= candidate.name %></td>
             <td><%= candidate.party %></td>
             <td><%= candidate.politics %></td>
             <td><%= candidate.vote_logs.size %></td>
+            <td><%= link_to "狀態TEST未完成"%></td>
+            
+            <td><%= candidate.time %></td>
             <td>
             <%= link_to "編輯", edit_candidate_path(candidate),class: "btn btn-info" %>
             <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger" %>       
@@ -29,3 +36,6 @@
         <%end%>
     </tbody>
   </table>
+
+  <%= paginate @candidate%>
+ 

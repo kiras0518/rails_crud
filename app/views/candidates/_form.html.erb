@@ -1,7 +1,23 @@
 <%=simple_form_for(candidate) do |f| %>
-    <%= f.input :name, label: "姓名" %>
-    <%= f.input :age, label: "年齡" %>
-    <%= f.input :party, label: "政黨" %>
-    <%= f.input :politics, label: "政見" %>
-    <%= f.submit %>
+
+<div class="col-md-6">
+
+    <div class="form-group">
+        <%= f.input :name, label: "姓名" %>
+    </div>
+    <div class="form-group">
+        <%= f.input :party, label: "描述" %>
+    </div>
+    <div class="form-group">
+        <%= f.input :politics, label: "備註" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :截止日期 %>
+        <%= f.date_select(:time, :order => [:year, :month, :day]) %>
+    </div>
+
+    <%= f.button :submit, "保存", class: "btn btn-success" %>
+    <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger" %>
+
+</div>
 <% end %>

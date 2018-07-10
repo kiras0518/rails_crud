@@ -4,6 +4,8 @@ class CandidatesController < ApplicationController
 
     def index
         @candidate = Candidate.all
+        #分頁顯示
+        @candidate = Candidate.page(params[:page]).per(10)
     end
 
     def new
@@ -14,7 +16,7 @@ class CandidatesController < ApplicationController
         @candidate = Candidate.new(candidate_params)
 
         if @candidate.save
-            redirect_to candidates_path, notice: "新增候選人成功!"
+            redirect_to candidates_path, notice: "新增任務成功!"
         else
             render :new
         end
@@ -46,12 +48,12 @@ class CandidatesController < ApplicationController
     def vote
         #@candidate = Candidate.find_by(id: params[:id])
         @candidate.vote_logs.create(ip_address: request.remote_ip) if @candidate
-        redirect_to candidates_path, notice: "完成投票!" 
+        redirect_to candidates_path, notice: "完成++!" 
     end
 
     private
     def candidate_params
-      params.require(:candidate).permit(:name, :age, :party, :politics)
+      params.require(:candidate).permit(:name, :age, :party, :politics, :time)
     end
 
     def find_candidate
