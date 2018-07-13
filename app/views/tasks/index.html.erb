@@ -18,8 +18,7 @@
             <td><%= task.tilte %></td>
             <td><%= task.context %></td>
             <td><%= task.status %></td>
-            <td><%= task.end_date%></td>  
-              
+            <td><%= task.end_date.strftime("%Y-%m-%d") %></td>   
             <td>
             <%= link_to "編輯", edit_task_path(task),class: "btn btn-info" %>
             <%= link_to "刪除", task_path(task), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger" %>      
