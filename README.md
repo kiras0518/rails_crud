@@ -12,13 +12,13 @@
 |password|string|
 
 ### Task
-
-| column | type | memo |
-|title | string	|
-|priority | integer |	
-|context | text |	
-|status	| string |	
-|end_time |	datetime |	
+| column | type | notes |
+|---|---|---|
+|title|string| |
+|priority|integer| |
+|context|text| |
+|status|string| |
+|end_time|datetime| |	
 
 
 

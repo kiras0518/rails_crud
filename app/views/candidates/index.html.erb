@@ -1,7 +1,7 @@
 <h1>任務列表</h1>
 <% provide :my_title, "Rails 任務管理" %> 
 
-  <%= icon_link_to "新增任務" ,new_candidate_path, "plus" %>
+  <%= link_to "新增任務" , new_candidate_path %>
   <table class = "table">
     <thead>
       <tr>
@@ -18,19 +18,17 @@
     <tbody>   
          <% @candidate.each do |candidate| %>
             <tr>
-            <td><%= link_to "+1測試", vote_candidate_path(candidate), method: "post", data: { confirm: "確認要+1嗎?!" }, class:"btn btn-warning btn-xs" %></td>
-            
-           
+            <<td><%= link_to "+1測試", vote_candidate_path(candidate), method: "post", data: { confirm: "確認要+1嗎?!" }, class:"btn btn-warning btn-xs" %></td> 
             <td><%= candidate.name %></td>
             <td><%= candidate.party %></td>
             <td><%= candidate.politics %></td>
             <td><%= candidate.vote_logs.size %></td>
-            <td><%= link_to "狀態TEST未完成"%></td>
-            
+            <td><%= link_to "狀態TEST未完成"%></td>          
             <td><%= candidate.time %></td>
+            
             <td>
             <%= link_to "編輯", edit_candidate_path(candidate),class: "btn btn-info" %>
-           <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger" %>      
+            <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger" %>      
             </td>
             </tr>
         <%end%>

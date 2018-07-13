@@ -28,8 +28,6 @@ class CandidatesController < ApplicationController
     end
 
     def update
-        #@candidate = Candidate.find_by(id: params[:id])
-  
         if @candidate.update(candidate_params)
           # 成功
           redirect_to candidates_path, notice: "資料更新成功!"
@@ -58,6 +56,10 @@ class CandidatesController < ApplicationController
 
     def find_candidate
       @candidate = Candidate.find_by(id: params[:id])
+    end
+
+    def task_params
+       
     end
 
 end
