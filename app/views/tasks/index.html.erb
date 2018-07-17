@@ -1,6 +1,5 @@
 <h1>任務列表</h1>
 <% provide :my_title, "Rails 任務管理" %> 
-
   <%= link_to "新增任務",new_task_path,class:"btn btn-primary" %>
   <table class = "table">
     <thead>
@@ -28,5 +27,5 @@
     </tbody>
   </table>
 
-  <%= paginate @task%>
+<%= paginate @task%>
  
