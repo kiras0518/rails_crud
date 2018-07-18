@@ -4,9 +4,14 @@ class TasksController < ApplicationController
 
     def index
       #使用了 Model 的 all 類別方法取得所有資料，存成 @task 實體變數，以便待會在 View 可使用。
-      @task = Task.all
+      #@task = Task.all
       #分頁顯示
-      @task = Task.page(params[:page]).per(5)
+      #@task = Task.page(params[:page]).per(5)
+      #一次性load排序和分頁
+      @task = Task.due_date.page(params[:page]).per(5)
+      #以時間排序
+      #@task = @task.due_date
+      #@task = @task.latest
     end
 
     def new

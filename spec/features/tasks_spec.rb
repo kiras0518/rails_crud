@@ -10,13 +10,14 @@ RSpec.feature "Tasks", type: :feature do
 
   describe "TEST" do
     it "新增任務" do
-      title = "我是吃咖哩"
+      title = "新增任務"
       visit "/tasks/new"
       fill_in :task_title, with: title
       fill_in :task_context, with: "內容"
-      #click_button :submit
+      click_button "保存"
       expect(tasks_path).to eq '/tasks'
       expect(page).to have_content(title)
+      #頁面內容有什麼have_content
     end
   end
 
