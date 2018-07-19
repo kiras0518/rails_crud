@@ -15,7 +15,7 @@
     <tbody>   
          <% @task.each do |task| %>
             <tr>
-            <td><%= task.title %></td>
+            <td><%= link_to task.title,task_path(task) %></td>
             <td><%= task.context %></td>
             <td><%= task.status %></td>
             <td><%= task.end_date.strftime("%Y-%m-%d") %></td>   
