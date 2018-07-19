@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
-#gem "rails-i18n"
+gem "rails-i18n"
 gem 'pg'
 gem 'hirb-unicode'
 

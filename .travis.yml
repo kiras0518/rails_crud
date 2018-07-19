@@ -1,8 +1,6 @@
 language: ruby
   rvm:
   - 2.3.3
-  - jruby
-  - rbx-3
-
+  
   script:
-  - bundle exec rake build
+  - bundle exec rspec

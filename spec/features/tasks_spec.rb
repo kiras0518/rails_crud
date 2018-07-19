@@ -29,13 +29,14 @@ RSpec.feature "Tasks", type: :feature do
     end
 
     it '刪除任務' do
+      #放入一個值做刪除的測試不然會錯誤
+      #a = Task.create(title: 'C',context: 'BBB', status: 1, end_date: DateTime.current)
       visit tasks_path
       expect(current_path).to eq '/tasks'
       expect { click_link "刪除" }.to change(Task, :count).by(-1) 
+      
     end
 
   end
-
-
 
 end
