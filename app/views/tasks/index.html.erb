@@ -1,0 +1,31 @@
+<h1>任務列表</h1>
+<% provide :my_title, "Rails 任務管理" %> 
+  <%= link_to "新增任務",new_task_path,class:"btn btn-primary" %>
+  <table class = "table">
+    <thead>
+      <tr>
+        <td>任務名稱</td>
+        <td>描述</td>
+        <td>目前狀態</td>
+        <td>截止日期</td>
+        <td>處理</td>    
+      </tr>
+    </thead>
+    <tbody>   
+         <% @task.each do |task| %>
+            <tr>
+            <td><%= task.tilte %></td>
+            <td><%= task.context %></td>
+            <td><%= task.status %></td>
+            <td><%= task.end_date.strftime("%Y-%m-%d") %></td>   
+            <td>
+            <%= link_to "編輯", edit_task_path(task),class: "btn btn-info" %>
+            <%= link_to "刪除", task_path(task), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger" %>      
+            </td>
+            </tr>
+        <%end%>
+    </tbody>
+  </table>
+
+<%= paginate @task%>
+ 
