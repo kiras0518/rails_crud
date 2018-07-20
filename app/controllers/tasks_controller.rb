@@ -8,7 +8,7 @@ class TasksController < ApplicationController
       #分頁顯示
       #@task = Task.page(params[:page]).per(5)
       #一次性load排序和分頁
-      @task = Task.due_date.page(params[:page]).per(5)
+      @tasks = Task.due_date.page(params[:page]).per(5)
       #以時間排序
       #@task = @task.due_date
       #@task = @task.latest
@@ -55,4 +55,6 @@ class TasksController < ApplicationController
     def find_task
       @task = Task.find_by(id: params[:id])
     end
+
+    
 end
