@@ -8,11 +8,14 @@ class TasksController < ApplicationController
       #分頁顯示
       #@task = Task.page(params[:page]).per(5)
       #一次性load排序和分頁
-      @tasks = Task.due_date.page(params[:page]).per(5)
+      @tasks = Task
+      @tasks = sort(@tasks)
+      @tasks = @tasks.page(params[:page]).per(5)
       #以時間排序
       #@task = @task.due_date
       #@task = @task.latest
     end
+
 
     def new
       @task = Task.new
@@ -46,7 +49,15 @@ class TasksController < ApplicationController
         redirect_to tasks_path, notice: "任務已刪除!"
     end
 
+
     private
+
+    def sort(tasks)
+      return case params[:sort]
+        when 'end_at' then tasks.due_date
+        else tasks.latest
+        end
+    end
     
     def task_params
       params.require(:task).permit(:title, :context, :status, :end_date)
