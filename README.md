@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kiras0518/rails_crud.svg?branch=step8)](https://travis-ci.org/kiras0518/rails_crud)
+
 # Re:從零開始的Rails世界生活
 
 ## Version
@@ -19,9 +21,6 @@
 |context|text| |
 |status|string| |
 |end_time|datetime| |	
-
-
-
 
 
 ## 預覽圖

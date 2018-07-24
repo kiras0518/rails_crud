@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_13_063230) do
+ActiveRecord::Schema.define(version: 2018_07_17_064654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_07_13_063230) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "tilte"
+    t.string "title"
     t.integer "status"
     t.text "context"
     t.datetime "end_date"
