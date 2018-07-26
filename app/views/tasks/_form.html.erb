@@ -8,11 +8,15 @@
         <%= f.input :context, label: "描述" %>
     </div>
     <div class="form-group">
-        <%= f.label "狀態" %>
-        <%= f.select :status ,['pending','handling','finished']%>
+        <%= f.label "狀態 " %>
+        <%= f.select :status, Task.statuses.collect {|k,v| [k.capitalize, k]}  %>
     </div>
     <div class="form-group">
-        <%= f.label :截止日期 %>
+        <%= f.label "優先權 " %>
+        <%= f.select :priority, Task.priorities.collect {|k,v| [k.capitalize, k]}  %>
+    </div>
+    <div class="form-group">
+        <%= f.label "截止日期" %>
         <%= f.date_select(:end_date, :order => [:year, :month, :day]) %>
     </div>
     <%= f.button :submit, "保存", class: "btn btn-success" %>

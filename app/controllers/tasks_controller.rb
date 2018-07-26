@@ -10,12 +10,15 @@ class TasksController < ApplicationController
       #一次性load排序和分頁
       @tasks = Task
       @tasks = sort(@tasks)
-      @tasks = @tasks.page(params[:page]).per(5)
+      #@tasks = @tasks.page(params[:page]).per(5)
+
+      @q = Task.ransack(params[:q])
+      @tasks = @q.result(distinct: true).page(params[:page]).per(5)
+     
       #以時間排序
       #@task = @task.due_date
       #@task = @task.latest
     end
-
 
     def new
       @task = Task.new
@@ -60,7 +63,7 @@ class TasksController < ApplicationController
     end
     
     def task_params
-      params.require(:task).permit(:title, :context, :status, :end_date)
+      params.require(:task).permit(:title, :context, :status, :priority, :end_date)
     end
 
     def find_task
