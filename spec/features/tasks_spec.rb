@@ -4,15 +4,16 @@ RSpec.feature "Tasks", type: :feature do
 
  #在每一個it的測試項目之前，都先建立一個資料
   before :each do
-    @task = Task.new(title: '標題', context: '內容', status: 2, end_date: DateTime.current)
+    @task = Task.new(title: '標題', context: '內容', status: rand(0..2), priority: rand(0..2), end_date: DateTime.current)
     @task.save
   end
 
-  describe "Step8" do
+  describe "驗證" do
     it "新增任務" do
       visit new_task_path
       fill_in :task_title, with: "好吃"
       fill_in :task_context, with: "我是內容"
+      
       click_button "保存"
       expect(current_path).to eq '/tasks'
       expect(page).to have_content(title)
@@ -33,8 +34,12 @@ RSpec.feature "Tasks", type: :feature do
       #a = Task.create(title: 'C',context: 'BBB', status: 1, end_date: DateTime.current)
       visit tasks_path
       expect(current_path).to eq '/tasks'
-      expect { click_link "刪除" }.to change(Task, :count).by(-1) 
-      
+      expect { click_link "刪除" }.to change(Task, :count).by(-1)  
+    end
+
+    it "should have a priority level range from 0 to 2" do
+      task = Task.create! name: "foo", priority: rand(0..2) 
+      expect(task).to be_valid
     end
 
   end
