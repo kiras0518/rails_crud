@@ -5,9 +5,10 @@
     <div class="panel-body">
         <%= render "search" %>           
         <%= link_to "新增任務", new_task_path, class:"btn btn-primary" %>
-        <%= link_to "截止日期排序",tasks_path(sort: :end_at), class:"btn btn-warning" %>
+        <!--<%= link_to "截止日期排序",tasks_path(sort: :end_at), class:"btn btn-warning" %>-->
         <%= sort_link(@q, :created_at, '發布日期', default_order: :desc) %>
-        <%= sort_link(@q, :end_date, '截止日期', default_order: :asc) %>
+        <%= sort_link(@q, :end_date, '截止日期' ,default_order: :asc) %>
+        <%= sort_link(@q, :priority, '優先權' ,default_order: :asc ) %>
     </div>
 </div>
 </div>
@@ -41,5 +42,10 @@
     </tbody>
   </table>
 
-<%= paginate @tasks%>
+<div class="row">
+  <div class="col-sm-12">
+    <%= paginate @tasks, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-small pagination-centered" %>
+  </div>
+</div>
+
  
