@@ -16,7 +16,7 @@ RSpec.describe Task, type: :model do
   
     it "新增一個任務，無任務內容" do
       @task.context = nil
-      expect(@task.save).to be true
+      expect(@task.save).to be false
     end
   
     it "新增一個任務，無優先權" do
@@ -36,5 +36,4 @@ RSpec.describe Task, type: :model do
 
   end
  
-
 end

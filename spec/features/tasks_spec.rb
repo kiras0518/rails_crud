@@ -13,7 +13,6 @@ RSpec.feature "Tasks", type: :feature do
       visit new_task_path
       fill_in :task_title, with: "好吃"
       fill_in :task_context, with: "我是內容"
-      
       click_button "保存"
       expect(current_path).to eq '/tasks'
       expect(page).to have_content(title)
