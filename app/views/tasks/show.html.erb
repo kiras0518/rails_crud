@@ -7,7 +7,7 @@
       <p> Status: <%= @task.status %></p>
     </div> <!-- default block end  -->
 </div> <!-- col-md-4 end -->
-    
+
 <br />
 <%= link_to "刪除", task_path(@task), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger" %>      
 <%= link_to '回列表', tasks_path, class: "btn btn-info" %>

@@ -9,7 +9,7 @@ class TasksController < ApplicationController
       #@task = Task.page(params[:page]).per(5)
       #一次性load排序和分頁
       @tasks = Task
-      @tasks = sort(@tasks)
+      #@tasks = sort(@tasks)
       #@tasks = @tasks.page(params[:page]).per(5)
 
       @q = Task.ransack(params[:q])
