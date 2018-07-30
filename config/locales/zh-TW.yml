@@ -7,7 +7,7 @@ zh-TW:
     destroy_success_msg: "刪除成功"
     destroy_failed_msg: "刪除失敗"
   task:
-    select_tag: 
+    status: 
       pending: '待處理'
       handling: '進行中'
       finished: '完成'

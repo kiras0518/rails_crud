@@ -5,4 +5,7 @@ class Task < ApplicationRecord
     # 使用時間排序
     scope :latest, -> { order(created_at: :desc) }
     scope :due_date, -> { order(end_date: :asc) }
+
+    #enum status: [:pending, :handling, :finished]
+    enum status: {pending: 0, handling: 1, finished: 2}
 end

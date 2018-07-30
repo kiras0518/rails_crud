@@ -4,7 +4,7 @@ RSpec.feature "Tasks", type: :feature do
 
  #在每一個it的測試項目之前，都先建立一個資料
   before :each do
-    @task = Task.new(title: '標題', context: '內容', status: 1, end_date: DateTime.current)
+    @task = Task.new(title: '標題', context: '內容', status: 2, end_date: DateTime.current)
     @task.save
   end
 
