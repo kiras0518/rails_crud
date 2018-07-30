@@ -37,11 +37,6 @@ RSpec.feature "Tasks", type: :feature do
       expect { click_link "刪除" }.to change(Task, :count).by(-1)  
     end
 
-    it "should have a priority level range from 0 to 2" do
-      task = Task.create! name: "foo", priority: rand(0..2) 
-      expect(task).to be_valid
-    end
-
   end
 
 end
