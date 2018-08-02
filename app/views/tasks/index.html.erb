@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+<% provide :my_title, "Rails 任務管理" %> 
+<div class="container-fluid">
+<div class="panel panel-info">
+    <div class="panel-heading"> <h1>任務列表</h1></div>
+    <div class="panel-body">
+        <%= render "search" %>           
+        <%= link_to "新增任務", new_task_path, class:"btn btn-primary" %>
+        <!--<%= link_to "截止日期排序",tasks_path(sort: :end_at), class:"btn btn-warning" %>-->
+        <%= sort_link(@q, :created_at, '發布日期', {default_order: :desc}, {class: 'btn btn-default'}) %>
+        <%= sort_link(@q, :end_date, '截止日期' ,{default_order: :asc}, {class: 'btn btn-default'}) %>
+        <%= sort_link(@q, :priority, '優先權' , {default_order: :asc}, {class: 'btn btn-default'}) %>
+    </div>
+</div>
+</div>
+  <table class = "table table-bordered">
+    <thead>
+      <tr>
+        <td>發布日期</td>
+=======
 
 <% provide :my_title, "Rails 任務管理" %> 
 
@@ -12,9 +32,11 @@
     <thead>
       <tr>
         <td>創造日期</td>
+>>>>>>> master
         <td>任務名稱</td>
         <td>描述</td>
         <td>目前狀態</td>
+        <td>優先權</td>
         <td>截止日期</td>
         <td>處理</td>    
       </tr>
@@ -22,10 +44,18 @@
     <tbody>   
          <% @tasks.each do |task| %>
             <tr>
+<<<<<<< HEAD
+            <td><%= task.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+            <td><%= link_to task.title,task_path(task) %></td>
+            <td><%= task.context %></td>
+            <td><%= t("task.status.#{task.status}") %></td>
+            <td><%= t("task.priority.#{task.priority}") %></td>
+=======
             <td><%= task.created_at %></td>
             <td><%= link_to task.title,task_path(task) %></td>
             <td><%= task.context %></td>
             <td><%= task.status %></td>
+>>>>>>> master
             <td><%= task.end_date.strftime("%Y-%m-%d") %></td>    
             <td>
             <%= link_to "編輯", edit_task_path(task),class: "btn btn-info" %>
@@ -35,6 +65,7 @@
         <%end%>
     </tbody>
   </table>
+  
+  <%= paginate @tasks, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-small pagination-centered" %>
 
-<%= paginate @tasks%>
  

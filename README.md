@@ -22,7 +22,11 @@
 |status|string| |
 |end_time|datetime| |	
 
+<<<<<<< HEAD
+## 部屬網站
+=======
 ##部屬網站
+>>>>>>> master
 https://polar-mountain-43698.herokuapp.com/tasks/
 
 ## 預覽圖
