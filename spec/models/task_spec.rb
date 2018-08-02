@@ -6,9 +6,9 @@ RSpec.describe Task, type: :model do
     @task = Task.new(title: '標題', context: '內容', status: rand(0..2), priority: rand(0..2), end_date: DateTime.current)
     @task.save
   end
-  
+
   describe "Validation" do
-  
+
     it "新增一個任務，無標題" do
       @task.title = nil
       expect(@task.save).to be false
@@ -16,7 +16,7 @@ RSpec.describe Task, type: :model do
   
     it "新增一個任務，無任務內容" do
       @task.context = nil
-      expect(@task.save).to be false
+      expect(@task.save).to be true
     end
   
     it "新增一個任務，無優先權" do
@@ -35,5 +35,5 @@ RSpec.describe Task, type: :model do
     end
 
   end
- 
+
 end
