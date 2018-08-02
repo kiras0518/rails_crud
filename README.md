@@ -6,7 +6,7 @@
 - Ruby: 2.3.3
 - Rails: 2.4.6
 
-## Table 未規劃
+## Table 規劃中
 ### User
 | column | type |
 |---|---|
@@ -22,7 +22,11 @@
 |status|string| |
 |end_time|datetime| |	
 
+<<<<<<< HEAD
 ## 部屬網站
+=======
+##部屬網站
+>>>>>>> master
 https://polar-mountain-43698.herokuapp.com/tasks/
 
 ## 預覽圖
