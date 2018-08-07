@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         <%= f.label "狀態 " %>
-        <%= f.select :status, Task.statuses.collect {|k,v| [k.capitalize, k]}  %>
+        <%= f.select :status, Task.statuses.collect {|k,v| [k.capitalize, k]}  %> 
     </div>
     <div class="form-group">
         <%= f.label "優先權 " %>
