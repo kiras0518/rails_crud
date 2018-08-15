@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     
     before_action :find_task, only: [:edit, :update, :destroy]
-
+    before_action :authenticate_user!, only: [:create, :edit, :update, :new, :destroy]
     def index
       #使用了 Model 的 all 類別方法取得所有資料，存成 @task 實體變數，以便待會在 View 可使用。
       #@task = Task.all
@@ -72,6 +72,10 @@ class TasksController < ApplicationController
 
     def find_task
       @task = Task.find_by(id: params[:id])
+    end
+
+    def find_user
+      @user = User.find_by(id: params[:id])
     end
 
     
