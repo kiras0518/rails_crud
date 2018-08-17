@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   devise_for :managers
   devise_for :users
+  #devise_for :users, :controllers => { registration => "users/registrations" }
+
   #root :to => 'candidates#index'
   #resources :task
   #root :to => 'tasks#index'

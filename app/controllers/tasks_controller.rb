@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
     
     before_action :find_task, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!, only: [:create, :edit, :update, :new, :destroy]
+    #before_action :authenticate_user!, only: [:create, :edit, :update, :new, :destroy]
+    before_action :authenticate_user!
     def index
       #使用了 Model 的 all 類別方法取得所有資料，存成 @task 實體變數，以便待會在 View 可使用。
       #@task = Task.all
@@ -22,6 +23,7 @@ class TasksController < ApplicationController
 
     def new
       @task = Task.new
+     
     end
 
     def show
@@ -29,7 +31,9 @@ class TasksController < ApplicationController
     end
 
     def create
+    
       @task = Task.new(task_params)
+      @task = current_user.tasks.new(task_params)
         if @task.save
           redirect_to tasks_path
           flash[:info] = "新增任務成功"
@@ -59,6 +63,10 @@ class TasksController < ApplicationController
 
     private
 
+    def set_user
+      @user = current_user
+    end
+
     def sort(tasks)
       return case params[:sort]
         when 'end_at' then tasks.due_date
@@ -67,7 +75,7 @@ class TasksController < ApplicationController
     end
     
     def task_params
-      params.require(:task).permit(:title, :context, :status, :priority, :end_date)
+      params.require(:task).permit(:title, :context, :status, :priority, :end_date, :user_id)
     end
 
     def find_task
@@ -77,6 +85,5 @@ class TasksController < ApplicationController
     def find_user
       @user = User.find_by(id: params[:id])
     end
-
-    
+ 
 end
